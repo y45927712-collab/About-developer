@@ -1,0 +1,553 @@
+
+/* ========================================
+   1. Global Styles
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(#200016, #10001f);
+    font-family: system-ui, sans-serif;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   2. Header / Navigation
+======================================== */
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 60px);
+    margin: 30px;
+    z-index: 15;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    display: inline-block;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+header ul li {
+    margin-right: 30px;
+    padding: 6px 15px;
+}
+
+header ul li a {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 25px;
+}
+
+header ul li a:hover,
+header ul li a.active,
+.active {
+    background: #fff;
+    color: #200016;
+}
+
+
+/* ========================================
+   3. Parallax Home Page
+======================================== */
+
+.main {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#moon {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    transform: translateY(80px) scale(1.1);
+}
+
+.yo {
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    transform: translateY(-100px);
+}
+
+.main::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, #10001f);
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.content {
+    padding: 30px;
+    color: #fff;
+}
+
+.content h2 {
+    margin: 20px;
+    font-size: 30px;
+}
+
+.content p {
+    margin: 20px;
+}
+
+
+/* ========================================
+   4. Projects / Contact Pages
+======================================== */
+
+.projects-page {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    height: auto;
+    color: #fff;
+    background: linear-gradient(#200016, #10001f);
+}
+
+.projects-content {
+    position: relative;
+    z-index: 1;
+    padding: 140px 8% 50px;
+    text-align: center;
+}
+
+.projects-content > h1 {
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+
+.projects-intro {
+    margin-bottom: 40px;
+    color: #d8c7df;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   5. Project Cards Layout
+======================================== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(230px, 1fr)
+    );
+    gap: 25px;
+}
+
+.project-card {
+    padding: 25px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(190, 80, 255, 0.35);
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.7s ease;
+}
+
+.project-card h2 {
+    margin-bottom: 12px;
+    color: #e7a3ff;
+}
+
+.project-card p {
+    margin-bottom: 20px;
+    color: #eee;
+    line-height: 1.7;
+}
+
+.project-card a,
+.back-home {
+    display: inline-block;
+    color: #e7a3ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-card a:hover,
+.back-home:hover {
+    color: #fff;
+}
+
+.back-home {
+    margin-top: 40px;
+}
+
+
+/* ========================================
+   6. Social Media Cards
+======================================== */
+
+.social-card {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.social-card h2 {
+    transition: color 0.3s ease;
+}
+
+.social-card a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-card:hover a {
+    transform: translateX(5px);
+}
+
+
+/* YouTube */
+
+.social-card.youtube:hover {
+    border-color: #ff0033;
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.3);
+}
+
+.social-card.youtube:hover h2 {
+    color: #ff334f;
+}
+
+
+/* Instagram */
+
+.social-card.instagram:hover {
+    border-color: #e130a0;
+    box-shadow: 0 0 25px rgba(225, 48, 160, 0.3);
+}
+
+.social-card.instagram:hover h2 {
+    color: #f777b8;
+}
+
+
+/* Facebook */
+
+.social-card.facebook:hover {
+    border-color: #1877f2;
+    box-shadow: 0 0 25px rgba(24, 119, 242, 0.3);
+}
+
+.social-card.facebook:hover h2 {
+    color: #5898ff;
+}
+
+
+/* Email: Google Colors */
+
+.social-card.email {
+    border: 1px solid rgba(190, 80, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.social-card.email h2 {
+    color: #e7a3ff;
+    background: none;
+    -webkit-text-fill-color: initial;
+    transition: color 0.3s ease;
+}
+
+.social-card.email:hover {
+    border-color: transparent;
+
+    background:
+        linear-gradient(
+            rgba(25, 5, 35, 0.96),
+            rgba(25, 5, 35, 0.96)
+        ) padding-box,
+        conic-gradient(
+            from 0deg,
+            #4285F4,
+            #34A853,
+            #FBBC05,
+            #EA4335,
+            #4285F4
+        ) border-box;
+
+    box-shadow:
+        0 0 12px rgba(66, 133, 244, 0.3),
+        0 0 24px rgba(52, 168, 83, 0.2),
+        0 0 36px rgba(234, 67, 53, 0.15);
+}
+
+.social-card.email:hover h2 {
+    background: linear-gradient(
+        90deg,
+        #4285F4,
+        #34A853,
+        #FBBC05,
+        #EA4335
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+
+/* ========================================
+   7. Glowing Mouse Cursor
+======================================== */
+
+.mouse-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #d633ff;
+
+    box-shadow:
+        0 0 10px #d633ff,
+        0 0 25px #a020f0,
+        0 0 45px rgba(214, 51, 255, 0.6);
+
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+
+/* ========================================
+   8. Mouse Trail
+======================================== */
+
+.mouse-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d633ff;
+
+    box-shadow:
+        0 0 8px #d633ff,
+        0 0 18px #a020f0;
+
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    animation: trailFade 0.55s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% {
+        opacity: 0.9;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+    }
+}
+
+
+/* ========================================
+   9. Magnetic Hover Effect
+======================================== */
+
+header ul li a,
+.logo,
+.project-card a,
+.back-home {
+    display: inline-block;
+
+    transition:
+        transform 0.2s ease-out,
+        color 0.2s ease,
+        text-shadow 0.2s ease;
+
+    will-change: transform;
+}
+
+header ul li a:hover,
+.logo:hover,
+.project-card a:hover,
+.back-home:hover {
+    text-shadow: 0 0 12px rgba(214, 51, 255, 0.8);
+}
+
+
+/* ========================================
+   10. Scroll Reveal
+======================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Staggered entrance for cards */
+
+.project-card.reveal {
+    transition:
+        opacity 0.7s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    transition-delay: var(--card-delay, 0ms);
+}
+
+/* Final state after entrance */
+
+.project-card.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Project card hover: must come after reveal.show */
+
+.project-card:not(.social-card).reveal.show:hover {
+    transform: translateY(-7px);
+    transition-delay: 0s;
+
+    border-color: #d633ff;
+    box-shadow: 0 0 20px rgba(214, 51, 255, 0.2);
+}
+
+/* Social card hover: preserve each platform's colors */
+
+.social-card.reveal.show:hover {
+    transform: translateY(-8px);
+    transition-delay: 0s;
+}
+
+/* Do not animate when reduced motion is requested */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .project-card,
+    .social-card,
+    .project-card.reveal {
+        transition: none;
+    }
+
+    .mouse-trail {
+        animation: none;
+    }
+}
+
+
+/* ========================================
+   11. Moving Purple Background Glow
+======================================== */
+
+.projects-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+
+    background: radial-gradient(
+        350px circle at var(--mouse-x) var(--mouse-y),
+        rgba(214, 51, 255, 0.16),
+        transparent 70%
+    );
+
+    transition: opacity 0.3s ease;
+}
+
+.projects-page.mouse-glow-active::before {
+    opacity: 1;
+}
+
+
+/* Smooth card hover transitions */
+.project-card,
+.social-card {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.project-card.reveal.show:hover,
+.social-card.reveal.show:hover {
+    transition-delay: 0s;
+}
+
+.project-card,
+.social-card {
+    transition: transform 0.35s ease !important;
+}
+
+.project-card.reveal.show:hover,
+.social-card.reveal.show:hover {
+    transform: translateY(-8px);
+}
